@@ -1,6 +1,6 @@
 .question__container {
     margin-top: 32px;
-    gap: 32px;
+    gap: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@
 .question__answers {
     display: grid;
     grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
-    gap: 16px;
+    gap: 24px;
 }
 
 .question__answer {
