@@ -1,18 +1,20 @@
+import "./question.css";
+
 const Question = () => {
     return (
-        <div>
-            <span>Which country does this flag ' ' belong to?</span>
-            <div>
-                <button>
+        <div className="question__container">
+            <span className="question__text">Which country does this flag ' ' belong to?</span>
+            <div className="question__answers">
+                <button className="question__answer">
                     Sweden
                 </button>
-                <button>
+                <button className="question__answer">
                     Vietnam
                 </button>
-                <button>
+                <button className="question__answer">
                     Finland
                 </button>
-                <button>
+                <button className="question__answer">
                     Austria
                 </button>
             </div>
