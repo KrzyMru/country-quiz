@@ -8,7 +8,7 @@ const GenerateCountryNameQuestion = (countryData: CountryData[], options: number
     const question: QuestionData = {
         text: `Which country does this flag '${randomCountries[chosenCountryIndex].flag}' belong to?`,
         answers: Array.from({ length: randomCountries.length }, (_, i) => randomCountries[i].name.common),
-        correctAnswer: chosenCountryIndex+15
+        correctAnswer: chosenCountryIndex+1
     }
 
     return question;
