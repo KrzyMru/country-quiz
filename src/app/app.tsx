@@ -1,12 +1,12 @@
 import "./app.css";
 import { useEffect, useState } from "react";
 import Quiz from "./components/quiz/quiz";
-import type { CountryData } from "./api/types";
 import getCountryData from "./api/get-country-data";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
+import type { QuestionData } from "./components/question/types";
 
 const App = () => {
-  const [countryData, setCountryData] = useState<CountryData[]>([]);
+  const [questions, setQuestions] = useState<QuestionData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -15,7 +15,7 @@ const App = () => {
       try {
         setLoading(true);
         const response = await getCountryData();
-        setCountryData(response);
+        setQuestions(GenerateCountryQuestions(response, 10));
       } catch(e: unknown) { 
         setError(true);
       } finally {
@@ -28,7 +28,7 @@ const App = () => {
   return (
     <main className="page">
       {
-        loading ?
+        loading || (!error && questions.length === 0) ?
         <div className="loading"></div>
         :
         error ?
@@ -37,7 +37,7 @@ const App = () => {
           <p>Please try again later.</p>
         </div>
         :
-        <Quiz questions={GenerateCountryQuestions(countryData, 10)} />
+        <Quiz questions={questions} />
       }
     </main>
   )
