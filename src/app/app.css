@@ -1,0 +1,33 @@
+.page {
+    height: 100%;
+    background-image: url("../assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    color: var(--white);
+    font-size: var(--text-lg);
+    font-weight: 700;
+}
+
+.header__points {
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    background: var(--gradient);
+    padding: 8px 16px 8px 16px;
+    border-radius: 24px;
+}
