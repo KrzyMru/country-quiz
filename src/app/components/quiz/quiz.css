@@ -32,6 +32,7 @@
     background-color: var(--dark-medium);
     border-radius: 12px;
     padding: 60px 120px 60px 120px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.1);
 }
 
 .quiz__questions {
@@ -55,8 +56,10 @@
     color: var(--white);
     font-size: var(--text-sm);
     font-weight: 600;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     &:hover {
         cursor: pointer;
+        box-shadow: none;
     }
 }
 .quiz__question--solved {
