@@ -1,21 +1,10 @@
 import "./quiz.css";
 import Question from "../question/question";
-import { useEffect, useState } from "react";
-import type { QuestionData } from "../question/types";
+import { useState } from "react";
+import type { QuizProps } from "./types";
 
-const Quiz = () => {
-    const [questions, setQuestions] = useState<QuestionData[]>([
-    {
-        text: "Which country does this flag '3' belong to?",
-        correctAnswer: 3,
-        answers: ["Sweden", "Vietnam", "Finland", "Austria"]
-    }, 
-    {
-        text: "Which country does this flag '1' belong to?",
-        correctAnswer: 1,
-        answers: ["Sweden", "Vietnam", "Finland", "Austria"]
-    }
-    ]);
+const Quiz = (props: QuizProps) => {
+    const { questions } = { ...props }
     const [answers, setAnswers] = useState<Array<number|null>>(Array(questions.length).fill(null));
     const [currentQuestion, setcurrentQuestion] = useState<number>(1);
     const [points, setPoints] = useState<number>(0);

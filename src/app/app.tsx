@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Quiz from "./components/quiz/quiz";
 import type { CountryData } from "./api/types";
 import getCountryData from "./api/get-country-data";
+import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
 
 const App = () => {
   const [countryData, setCountryData] = useState<CountryData[]>([]);
@@ -36,7 +37,7 @@ const App = () => {
           <p>Please try again later.</p>
         </div>
         :
-        <Quiz />
+        <Quiz questions={GenerateCountryQuestions(countryData, 10)} />
       }
     </main>
   )
