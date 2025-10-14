@@ -14,38 +14,55 @@
 }
 
 .question__answers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
-    grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+    grid-template-columns: minmax(250px, 1fr) minmax(250px, 1fr);
     gap: 24px;
 }
 
 .question__answer {
+    width: 100%;
     color: var(--white);
     font-size: var(--text-sm);
     font-weight: 600;
-    background-color: var(--dark-light);
+    background: var(--dark-light);
     border: none;
     padding: 24px 100px 24px 100px;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 12px;
+    position: relative;
     &:hover {
         cursor: pointer;
         background: var(--gradient);
     }
 }
+.question__answer--disabled {
+    &:hover {
+        cursor: default;
+        background: var(--dark-light);
+    }
+}
 .question__answer--chosen {
     background: var(--gradient);
+    &:hover {
+        background: var(--gradient);
+    }
 }
 .question__answer--correct {
     &::after {
         content: url("../../../assets/Check_round_fill.svg");
+        position: absolute;
+        top: 2px;
+        right: 2px;
     }
 }
 .question__answer--incorrect {
     &::after {
         content: url("../../../assets/Close_round_fill.svg");
+        position: absolute;
+        top: 2px;
+        right: 2px;
     }
 }

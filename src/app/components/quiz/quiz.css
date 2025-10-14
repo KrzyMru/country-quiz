@@ -1,3 +1,30 @@
+.quiz__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    color: var(--white);
+    font-size: var(--text-lg);
+    font-weight: 700;
+}
+
+.header__points {
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    background: var(--gradient);
+    padding: 8px 16px 8px 16px;
+    border-radius: 24px;
+}
+
 .quiz__container {
     display: flex;
     flex-direction: column;
@@ -17,6 +44,7 @@
 }
 
 .quiz__question {
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +55,13 @@
     color: var(--white);
     font-size: var(--text-sm);
     font-weight: 600;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.quiz__question--solved {
+    background: var(--gradient);
 }
 .quiz__question--active {
-    background: var(--gradient);
+    outline: var(--white) solid 2px;
 }
