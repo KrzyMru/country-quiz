@@ -4,7 +4,7 @@ import type { QuestionProps } from "./types";
 const Question = (props: QuestionProps) => {
     const { question, onClick, userAnswer } = { ...props }
 
-    const isCorrectAnswerChoosen = userAnswer && userAnswer === question.correctAnswer;
+    const isCorrectAnswerChoosen = userAnswer !== null && userAnswer === question.correctAnswer;
 
     return (
         <div className="question__container">
@@ -12,8 +12,8 @@ const Question = (props: QuestionProps) => {
             <ul className="question__answers">
                 {
                     question.answers.map((answer, index) => {
-                        const isThisAnswerCorrect = userAnswer && question.correctAnswer === index+1;
-                        const isThisAnswerChoosen = userAnswer && question.answers[userAnswer-1] === answer;
+                        const isThisAnswerCorrect = userAnswer !== null && question.correctAnswer === index;
+                        const isThisAnswerChoosen = userAnswer !== null && question.answers[userAnswer] === answer;
                         return (
                             <li key={index}>
                                 <button 
@@ -26,7 +26,7 @@ const Question = (props: QuestionProps) => {
                                         ${!isCorrectAnswerChoosen && isThisAnswerChoosen ? 'question__answer--incorrect' : ''}
                                         ${!isCorrectAnswerChoosen && isThisAnswerCorrect ? 'question__answer--correct' : ''}
                                     `}
-                                    onClick={() => onClick(index + 1)}
+                                    onClick={() => onClick(index)}
                                     disabled={userAnswer !== null}
                                 >
                                     {answer}

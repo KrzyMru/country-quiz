@@ -6,13 +6,13 @@ import type { QuizProps } from "./types";
 const Quiz = (props: QuizProps) => {
     const { questions } = { ...props }
     const [answers, setAnswers] = useState<Array<number|null>>(Array(questions.length).fill(null));
-    const [currentQuestion, setcurrentQuestion] = useState<number>(1);
+    const [currentQuestion, setcurrentQuestion] = useState<number>(0);
     const [points, setPoints] = useState<number>(0);
 
     const handleClickAnswer = (answer: number) => {
-        if(answer === questions[currentQuestion-1].correctAnswer)
+        if(answer === questions[currentQuestion].correctAnswer)
             setPoints(points + 1);
-        setAnswers(prev => prev.map((val, i) => i === currentQuestion-1 ? answer : val));
+        setAnswers(prev => prev.map((val, i) => i === currentQuestion ? answer : val));
     }
 
     return (
@@ -29,8 +29,8 @@ const Quiz = (props: QuizProps) => {
                             <button
                                 type="button"
                                 title={`${i+1} question`}
-                                className={`quiz__question ${answers[i] ? 'quiz__question--solved' : ''} ${currentQuestion === i+1 ? 'quiz__question--active' : ''}`}
-                                onClick={() => setcurrentQuestion(i+1)}
+                                className={`quiz__question ${answers[i] !== null ? 'quiz__question--solved' : ''} ${currentQuestion === i ? 'quiz__question--active' : ''}`}
+                                onClick={() => setcurrentQuestion(i)}
                             >
                                 {i+1}
                             </button>
@@ -39,8 +39,8 @@ const Quiz = (props: QuizProps) => {
                 }
                 </ul>
                 <Question 
-                    question={questions[currentQuestion-1]}
-                    userAnswer={answers[currentQuestion-1]}
+                    question={questions[currentQuestion]}
+                    userAnswer={answers[currentQuestion]}
                     onClick={handleClickAnswer}
                 />
             </div>
