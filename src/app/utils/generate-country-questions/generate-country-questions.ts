@@ -10,7 +10,7 @@ import GenerateCountryPopulationMaxQuestion from "./questions/country-population
 import GenerateCountryPopulationMinQuestion from "./questions/country-population-min/generate-country-population-min-question";
 
 const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions: number): QuestionData[] => {
-    const questionTypes = Array.from({ length: numberOfQuestions < 1 ? 1 : numberOfQuestions }, () => Math.floor(Math.random() * 8) + 1);   // 1 - 8
+    const questionTypes = Array.from({ length: numberOfQuestions < 1 ? 1 : numberOfQuestions }, () => Math.floor(Math.random() * 12) + 1);   // 1 - 12
     const answerNumbers = [2, 4, 4, 4, 4, 4, 4, 6, 6, 6, 6, 8];
     const questions = questionTypes.map(type => {
         switch (type) {
