@@ -5,10 +5,19 @@ const Question = (props: QuestionProps) => {
     const { question, onClick, userAnswer } = { ...props }
 
     const isCorrectAnswerChoosen = userAnswer !== null && userAnswer === question.correctAnswer;
+    console.log(question)
 
     return (
         <div className="question__container">
             <span className="question__text">{question.text}</span>
+            {
+                question.image &&
+                <img 
+                    src={question.image.png}
+                    alt={question.image.alt}
+                    className="question__image"
+                />
+            }
             <ul className="question__answers">
                 {
                     question.answers.map((answer, index) => {

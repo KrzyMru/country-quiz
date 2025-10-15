@@ -7,7 +7,10 @@ interface CountryData {
     continents: string[],
     population: number,
     area: number,
-    flag: string,
+    flags: {
+        png: string,
+        alt: string,
+    },
     landlocked: boolean,
 }
 

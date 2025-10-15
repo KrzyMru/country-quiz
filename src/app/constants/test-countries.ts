@@ -7,7 +7,10 @@ const testCountryData: CountryData[] = [
         continents: ["Europe"],
         population: 67000000,
         area: 551695,
-        flag: "🇫🇷",
+        flags: {
+            png: "frenchFlagPng",
+            alt: "frenchFlagAlt",
+        },
         landlocked: false,
     },
     {
@@ -16,7 +19,10 @@ const testCountryData: CountryData[] = [
         continents: ["Europe"],
         population: 83000000,
         area: 357022,
-        flag: "🇩🇪",
+        flags: {
+            png: "germanFlagPng",
+            alt: "germanFlagAlt",
+        },
         landlocked: false,
     },
     {
@@ -25,7 +31,10 @@ const testCountryData: CountryData[] = [
         continents: ["Asia"],
         population: 29000000,
         area: 147516,
-        flag: "🇳🇵",
+        flags: {
+            png: "nepaliFlagPng",
+            alt: "nepaliFlagAlt",
+        },
         landlocked: true,
     },
     {
@@ -34,7 +43,10 @@ const testCountryData: CountryData[] = [
         continents: ["South America"],
         population: 11600000,
         area: 1098581,
-        flag: "🇧🇴",
+        flags: {
+            png: "bolivianFlagPng",
+            alt: "bolivianFlagAlt",
+        },
         landlocked: true,
     },
 ];

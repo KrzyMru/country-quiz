@@ -6,9 +6,13 @@ const GenerateCountryFlagQuestion = (countryData: CountryData[], options: number
     const chosenCountry = Math.floor(Math.random() * randomCountries.length);
     
     const question: QuestionData = {
-        text: `Which country does this flag '${randomCountries[chosenCountry].flag}' belong to?`,
+        text: "Which country does this flag belong to?",
         answers: Array.from({ length: randomCountries.length }, (_, i) => randomCountries[i].name.common),
-        correctAnswer: chosenCountry
+        correctAnswer: chosenCountry,
+        image: {
+            png: randomCountries[chosenCountry].flags.png,
+            alt: randomCountries[chosenCountry].flags.alt,
+        }
     }
 
     return question;

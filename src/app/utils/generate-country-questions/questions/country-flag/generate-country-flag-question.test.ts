@@ -10,13 +10,9 @@ test('Generates correct answers', () => {
 });
 
 test('Generates correct text', () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First answer is always correct
     const generatedQuestion = GenerateCountryFlagQuestion(testCountryData, 4);
 
-    const chosenCountryName = generatedQuestion.answers[0]; // Correct country
-    const chosenCountryFlag = testCountryData.find(cd => cd.name.common === chosenCountryName)?.flag;
-    
-    expect(generatedQuestion.text).toBe(`Which country does this flag '${chosenCountryFlag}' belong to?`);
+    expect(generatedQuestion.text).toBe("Which country does this flag belong to?");
 });
 
 test('Generates the correct answer', () => {
@@ -25,4 +21,15 @@ test('Generates the correct answer', () => {
 
     const chosenCountryName = generatedQuestion.answers[0]; // Correct country
     expect(generatedQuestion.correctAnswer).toBe(generatedQuestion.answers.indexOf(chosenCountryName));
+});
+
+test('Generates the correct flag', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First answer is always correct
+    const generatedQuestion = GenerateCountryFlagQuestion(testCountryData, 4);
+
+    const chosenCountryName = generatedQuestion.answers[0]; // Correct country
+    const chosenCountryFlags = testCountryData.find(c => c.name.common === chosenCountryName)?.flags;
+    expect(chosenCountryFlags).toBeTruthy();
+    expect(generatedQuestion.image?.png).toBe(chosenCountryFlags?.png);
+    expect(generatedQuestion.image?.alt).toBe(chosenCountryFlags?.alt);
 });

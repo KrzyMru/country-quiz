@@ -2,6 +2,10 @@ interface QuestionData {
     text: string,
     correctAnswer: number,
     answers: string[],
+    image?: {
+        png: string,
+        alt: string,
+    }
 }
 
 interface QuestionProps {
