@@ -3,6 +3,7 @@ import type { QuestionData } from "../../components/question/types";
 import GenerateCountryCapitalQuestion from "./questions/country-capital/generate-country-capital-question";
 import GenerateCountryContinentQuestion from "./questions/country-continent/generate-country-continent-question";
 import GenerateCountryFlagQuestion from "./questions/country-flag/generate-country-flag-question";
+import GenerateCountryPopulationMaxQuestion from "./questions/country-population-max/generate-country-population-max-question";
 
 const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions: number): QuestionData[] => {
     const questionTypes = Array.from({ length: numberOfQuestions < 1 ? 1 : numberOfQuestions }, () => Math.floor(Math.random() * 8) + 1);   // 1 - 8
@@ -12,7 +13,7 @@ const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions:
             case 1: return GenerateCountryFlagQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 2: return GenerateCountryCapitalQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 3: return GenerateCountryContinentQuestion(countryData, answerNumbers[Math.floor(Math.random() * (answerNumbers.length-1))]); // 7 possibilities
-            case 4: 
+            case 4: return GenerateCountryPopulationMaxQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 5: 
             case 6: 
             case 7: 
