@@ -7,15 +7,11 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .error {
-    margin: auto;
     color: var(--white);
     font-size: var(--text-md);
     font-weight: 600;

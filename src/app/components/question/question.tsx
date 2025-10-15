@@ -29,7 +29,7 @@ const Question = (props: QuestionProps) => {
                                     onClick={() => onClick(index)}
                                     disabled={userAnswer !== null}
                                 >
-                                    {answer}
+                                    <span className="answer__text">{answer}</span>
                                 </button>
                             </li>
                         )
