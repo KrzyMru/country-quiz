@@ -2,7 +2,7 @@ import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 import continents from "../../../../constants/continents";
 
-const GenerateCountryContinentQuestion = (countryData: CountryData[], options: number): QuestionData => {
+const generateCountryContinentQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const chosenCountry = Math.floor(Math.random() * countryData.length);
     const otherContinents = continents.filter(c => !countryData[chosenCountry].continents.includes(c));
     const randomOtherContinents = [...otherContinents].sort(() => 0.5 - Math.random()).slice(0, options < 0 ? 0 : options-1);
@@ -22,4 +22,4 @@ const GenerateCountryContinentQuestion = (countryData: CountryData[], options: n
     return question;
 }
 
-export default GenerateCountryContinentQuestion;
+export default generateCountryContinentQuestion;

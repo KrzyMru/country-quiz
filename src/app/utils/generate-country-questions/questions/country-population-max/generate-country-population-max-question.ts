@@ -1,7 +1,7 @@
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 
-const GenerateCountryPopulationMaxQuestion = (countryData: CountryData[], options: number): QuestionData => {
+const generateCountryPopulationMaxQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const randomCountries = [...countryData].sort(() => 0.5 - Math.random()).slice(0, options < 1 ? 1 : options);
     const biggestPopulation = Math.max(...randomCountries.map(c => c.population));
     const chosenCountry = randomCountries.findIndex(c => c.population === biggestPopulation);
@@ -15,4 +15,4 @@ const GenerateCountryPopulationMaxQuestion = (countryData: CountryData[], option
     return question;
 }
 
-export default GenerateCountryPopulationMaxQuestion;
+export default generateCountryPopulationMaxQuestion;

@@ -1,7 +1,7 @@
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 
-const GenerateCountryFlagQuestion = (countryData: CountryData[], options: number): QuestionData => {
+const generateCountryFlagQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const randomCountries = [...countryData].sort(() => 0.5 - Math.random()).slice(0, options < 1 ? 1 : options);
     const chosenCountry = Math.floor(Math.random() * randomCountries.length);
     
@@ -18,4 +18,4 @@ const GenerateCountryFlagQuestion = (countryData: CountryData[], options: number
     return question;
 }
 
-export default GenerateCountryFlagQuestion;
+export default generateCountryFlagQuestion;

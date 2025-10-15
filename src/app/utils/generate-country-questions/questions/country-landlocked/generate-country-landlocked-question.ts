@@ -1,7 +1,7 @@
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 
-const GenerateCountryLandlockedQuestion = (countryData: CountryData[]): QuestionData => {
+const generateCountryLandlockedQuestion = (countryData: CountryData[]): QuestionData => {
     const chosenCountry = Math.floor(Math.random() * countryData.length);
     
     const question: QuestionData = {
@@ -13,4 +13,4 @@ const GenerateCountryLandlockedQuestion = (countryData: CountryData[]): Question
     return question;
 }
 
-export default GenerateCountryLandlockedQuestion;
+export default generateCountryLandlockedQuestion;

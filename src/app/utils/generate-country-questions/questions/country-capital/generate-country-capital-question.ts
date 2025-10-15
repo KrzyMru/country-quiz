@@ -1,7 +1,7 @@
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 
-const GenerateCountryCapitalQuestion = (countryData: CountryData[], options: number): QuestionData => {
+const generateCountryCapitalQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const randomCountries = [...countryData].sort(() => 0.5 - Math.random()).slice(0, options < 1 ? 1 : options);
     const chosenCountry = Math.floor(Math.random() * randomCountries.length);
     
@@ -14,4 +14,4 @@ const GenerateCountryCapitalQuestion = (countryData: CountryData[], options: num
     return question;
 }
 
-export default GenerateCountryCapitalQuestion;
+export default generateCountryCapitalQuestion;

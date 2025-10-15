@@ -1,7 +1,7 @@
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 
-const GenerateCountryAreaMaxQuestion = (countryData: CountryData[], options: number): QuestionData => {
+const generateCountryAreaMaxQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const randomCountries = [...countryData].sort(() => 0.5 - Math.random()).slice(0, options < 1 ? 1 : options);
     const biggestArea = Math.max(...randomCountries.map(c => c.area));
     const chosenCountry = randomCountries.findIndex(c => c.area === biggestArea);
@@ -15,4 +15,4 @@ const GenerateCountryAreaMaxQuestion = (countryData: CountryData[], options: num
     return question;
 }
 
-export default GenerateCountryAreaMaxQuestion;
+export default generateCountryAreaMaxQuestion;
