@@ -9,13 +9,13 @@
     flex-direction: column;
     justify-content: start;
     padding-top: 60px;
+    padding-bottom: 60px;
     align-items: center;
     box-sizing: border-box;
 }
 
 .error {
     margin: auto;
-    padding-bottom: 60px;
     color: var(--white);
     font-size: var(--text-md);
     font-weight: 600;
