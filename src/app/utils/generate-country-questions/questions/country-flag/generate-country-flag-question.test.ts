@@ -10,7 +10,7 @@ test('Generates correct answers', () => {
 });
 
 test('Generates correct text', () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First country is always chosen
+    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First answer is always correct
     const generatedQuestion = GenerateCountryFlagQuestion(testCountryData, 4);
 
     const chosenCountryName = generatedQuestion.answers[0]; // Correct country
@@ -20,7 +20,7 @@ test('Generates correct text', () => {
 });
 
 test('Generates the correct answer', () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First country is always chosen
+    vi.spyOn(Math, 'random').mockReturnValue(0.2); // First answer is always correct
     const generatedQuestion = GenerateCountryFlagQuestion(testCountryData, 4);
 
     const chosenCountryName = generatedQuestion.answers[0]; // Correct country

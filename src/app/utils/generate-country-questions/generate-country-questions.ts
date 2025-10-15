@@ -1,5 +1,6 @@
 import type { CountryData } from "../../api/types";
 import type { QuestionData } from "../../components/question/types";
+import GenerateCountryCapitalQuestion from "./questions/country-capital/generate-country-capital-question";
 import GenerateCountryFlagQuestion from "./questions/country-flag/generate-country-flag-question";
 
 const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions: number): QuestionData[] => {
@@ -8,7 +9,7 @@ const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions:
     const questions = questionTypes.map(type => {
         switch (type) {
             case 1: return GenerateCountryFlagQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
-            case 2: 
+            case 2: return GenerateCountryCapitalQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 3: 
             case 4: 
             case 5: 
