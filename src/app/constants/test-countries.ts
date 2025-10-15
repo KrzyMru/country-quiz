@@ -9,7 +9,6 @@ const testCountryData: CountryData[] = [
         area: 551695,
         flag: "🇫🇷",
         landlocked: false,
-        unMember: true,
     },
     {
         name: { common: "Germany", official: "Federal Republic of Germany" },
@@ -19,7 +18,6 @@ const testCountryData: CountryData[] = [
         area: 357022,
         flag: "🇩🇪",
         landlocked: false,
-        unMember: true,
     },
     {
         name: { common: "Nepal", official: "Federal Democratic Republic of Nepal" },
@@ -29,7 +27,6 @@ const testCountryData: CountryData[] = [
         area: 147516,
         flag: "🇳🇵",
         landlocked: true,
-        unMember: true,
     },
     {
         name: { common: "Bolivia", official: "Plurinational State of Bolivia" },
@@ -39,7 +36,6 @@ const testCountryData: CountryData[] = [
         area: 1098581,
         flag: "🇧🇴",
         landlocked: true,
-        unMember: true,
     },
 ];
 
