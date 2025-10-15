@@ -1,6 +1,7 @@
 import type { CountryData } from "../../api/types";
 import type { QuestionData } from "../../components/question/types";
 import GenerateCountryAreaMaxQuestion from "./questions/country-area-max/generate-country-area-max-question";
+import GenerateCountryAreaMinQuestion from "./questions/country-area-min/generate-country-area-min-question";
 import GenerateCountryCapitalQuestion from "./questions/country-capital/generate-country-capital-question";
 import GenerateCountryContinentQuestion from "./questions/country-continent/generate-country-continent-question";
 import GenerateCountryFlagQuestion from "./questions/country-flag/generate-country-flag-question";
@@ -21,7 +22,7 @@ const GenerateCountryQuestions = (countryData: CountryData[], numberOfQuestions:
             case 7: return GenerateCountryPopulationMaxQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 8: return GenerateCountryPopulationMaxQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 9: return GenerateCountryAreaMaxQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
-            case 10: return GenerateCountryAreaMaxQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
+            case 10: return GenerateCountryAreaMinQuestion(countryData, answerNumbers[Math.floor(Math.random() * answerNumbers.length)]);
             case 11: return GenerateCountryContinentQuestion(countryData, answerNumbers[Math.floor(Math.random() * (answerNumbers.length-1))]); // 7 possibilities
             case 12: return GenerateCountryLandlockedQuestion(countryData);
             default: return GenerateCountryFlagQuestion(countryData, 4);
