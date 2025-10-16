@@ -30,7 +30,6 @@ const Question = (props: QuestionProps) => {
                                     title={answer}
                                     className={`
                                         question__answer ${userAnswer !== null ? 'question__answer--disabled' : ''}
-                                        ${isThisAnswerChoosen ? 'question__answer--chosen' : ''} 
                                         ${isCorrectAnswerChoosen && isThisAnswerChoosen ? 'question__answer--correct' : ''}
                                         ${!isCorrectAnswerChoosen && isThisAnswerChoosen ? 'question__answer--incorrect' : ''}
                                         ${!isCorrectAnswerChoosen && isThisAnswerCorrect ? 'question__answer--correct' : ''}

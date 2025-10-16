@@ -29,7 +29,13 @@ const Quiz = (props: QuizProps) => {
                             <button
                                 type="button"
                                 title={`${i+1} question`}
-                                className={`quiz__question ${answers[i] !== null ? 'quiz__question--solved' : ''} ${currentQuestion === i ? 'quiz__question--active' : ''}`}
+                                className={`
+                                    quiz__question 
+                                    ${answers[i] !== null ? 
+                                        answers[i] === questions[i].correctAnswer ? 'quiz__question--correct' : 'quiz__question--incorrect' 
+                                        : ''} 
+                                    ${currentQuestion === i ? 'quiz__question--active' : ''}
+                                `}
                                 onClick={() => setcurrentQuestion(i)}
                             >
                                 {i+1}

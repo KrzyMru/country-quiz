@@ -25,7 +25,7 @@
     color: var(--white);
     font-size: var(--text-sm);
     font-weight: 600;
-    background: var(--gradient);
+    background: var(--gradient-bright);
     padding: 8px 16px 8px 16px;
     border-radius: 24px;
 }
@@ -74,8 +74,11 @@
         box-shadow: none;
     }
 }
-.quiz__question--solved {
-    background: var(--gradient);
+.quiz__question--correct {
+    background: var(--gradient-correct);
+}
+.quiz__question--incorrect {
+    background: var(--gradient-incorrect);
 }
 .quiz__question--active {
     outline: var(--white) solid 2px;

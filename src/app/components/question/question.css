@@ -50,12 +50,11 @@
     padding: 24px;
     border-radius: 12px;
     gap: 12px;
-    position: relative;
     box-shadow: 0 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease; 
     &:hover {
         cursor: pointer;
-        background: var(--gradient);
+        background: var(--dark-lighter);
         box-shadow: none;
     }
 }
@@ -66,26 +65,16 @@
         box-shadow: 0 4px rgba(0, 0, 0, 0.1);
     }
 }
-.question__answer--chosen {
-    background: var(--gradient);
-    &:hover {
-        background: var(--gradient);
-    }
-}
 .question__answer--correct {
-    &::after {
-        content: url("../../../assets/Check_round_fill.svg");
-        position: absolute;
-        top: 2px;
-        right: 2px;
+    background: var(--gradient-correct);
+    &:hover {
+        background: var(--gradient-correct);
     }
 }
 .question__answer--incorrect {
-    &::after {
-        content: url("../../../assets/Close_round_fill.svg");
-        position: absolute;
-        top: 2px;
-        right: 2px;
+    background: var(--gradient-incorrect);
+    &:hover {
+        background: var(--gradient-incorrect);
     }
 }
 
