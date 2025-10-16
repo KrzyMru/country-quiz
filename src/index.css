@@ -18,6 +18,7 @@
   --text-sm: 16px;
   --text-md: 20px;
   --text-lg: 24px;
+  --text-xl: 36px;
 }
 
 #root {

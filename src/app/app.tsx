@@ -1,5 +1,5 @@
 import "./app.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Quiz from "./components/quiz/quiz";
 import getCountryData from "./api/get-country-data";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
@@ -10,31 +10,48 @@ const App = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
-  useEffect(() => {
-    const loadCountryData = async () => {
-      try {
-        setLoading(true);
-        const response = await getCountryData();
-        setQuestions(GenerateCountryQuestions(response, 10));
-      } catch(e: unknown) { 
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
+  const loadQuestions = async () => {
+    try {
+      setLoading(true);
+      const response = await getCountryData();
+      setQuestions(GenerateCountryQuestions(response, 10));
+    } catch(e: unknown) { 
+      setError(true);
+    } finally {
+      setLoading(false);
     }
-    loadCountryData();
-  }, []);
+  }
 
   return (
     <main className="page">
       {
-        loading || (!error && questions.length === 0) ?
+        loading ?
         <div className="loading"></div>
         :
         error ?
         <div className="error">
           <p>There was an error when loading country data.</p>
           <p>Please try again later.</p>
+        </div>
+        :
+        questions.length === 0 ?
+        <div className="menu__container">
+          <header className="menu__header">Country Quiz</header>
+          <button
+            type="button"
+            title="Start"
+            onClick={loadQuestions}
+            className="menu__button"
+          >
+            Start
+          </button>
+          <button
+            type="button"
+            title="Settings"
+            className="menu__button"
+          >
+            Settings
+          </button>
         </div>
         :
         <Quiz questions={questions} />
