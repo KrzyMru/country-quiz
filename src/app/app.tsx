@@ -13,7 +13,10 @@ const App = () => {
   const loadQuestions = async () => {
     try {
       setLoading(true);
-      const response = await getCountryData();
+      const [response] = await Promise.all([
+        getCountryData(),
+        new Promise(resolve => setTimeout(resolve, 1000))
+      ]); // Small delay to show loading
       setQuestions(GenerateCountryQuestions(response, 10));
     } catch(e: unknown) { 
       setError(true);
