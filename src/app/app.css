@@ -6,9 +6,10 @@
     background-position: center;
     overflow: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @media screen and (max-width: 900px) {
+        padding: 20px;
+        box-sizing: border-box;
+    }
 }
 
 .error {

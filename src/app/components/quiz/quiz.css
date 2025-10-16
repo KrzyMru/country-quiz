@@ -1,7 +1,12 @@
 .quiz__wrapper {
+    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 36px;
+    @media screen and (max-width: 900px) {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .header__container {
@@ -33,6 +38,10 @@
     border-radius: 12px;
     padding: 60px 120px 60px 120px;
     box-shadow: 0 4px rgba(0, 0, 0, 0.1);
+    @media screen and (max-width: 900px) {
+        padding: 20px;
+        height: 100%;
+    }
 }
 
 .quiz__questions {
@@ -41,7 +50,10 @@
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
+    @media screen and (max-width: 900px) {
+        flex-wrap: wrap;
+    }
 }
 
 .quiz__question {
