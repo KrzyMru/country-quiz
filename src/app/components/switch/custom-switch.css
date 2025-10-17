@@ -1,0 +1,29 @@
+.switch__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    width: 48px;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 2px 4px 2px 4px;
+    background-color: var(--dark-medium);
+    border: 2px solid var(--white);
+    transition: all 0.3s ease-in-out;
+}
+.switch__container[data-checked] {
+    background-color: var(--orange);
+}
+
+.switch__circle {
+    pointer-events: none;
+    height: 14px;
+    width: 14px;
+    transform: translateX(0);
+    border-radius: 100%;
+    background-color: var(--white);
+    transition: all 0.2s ease-in-out;
+}
+.switch__container[data-checked] .switch__circle {
+    transform: translateX(22px);
+}
