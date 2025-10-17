@@ -25,7 +25,7 @@
 .loading {
     height: fit-content;
     align-self: center;
-    margin: 120px auto 80px auto;
+    margin: 120px auto 120px auto;
     grid-column: 1 / -1;
     width: 28px;
     aspect-ratio: 1;
