@@ -6,6 +6,9 @@
     border-radius: 12px;
     padding: 32px;
     position: relative;
+    @media screen and (max-width:900px) {
+        padding: 16px;
+    }
 }
 
 .settings__title {
@@ -19,6 +22,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    @media screen and (max-width:900px) {
+        flex-direction: column;
+    }
 }
 
 .settings__division {
