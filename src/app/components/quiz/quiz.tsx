@@ -17,11 +17,6 @@ const Quiz = (props: QuizProps) => {
         setAnswers(prev => prev.map((val, i) => i === currentQuestion ? answer : val));
     }
 
-    const handleEndGame = () => {
-        setGameEnd(false);
-        onPlayAgain();
-    }
-
     useEffect(() => {
         if(!answers.includes(null))
             setGameEnd(true);
@@ -71,9 +66,10 @@ const Quiz = (props: QuizProps) => {
             </div>
             <CongratsMessage 
                 isOpen={gameEnd} 
-                onClose={handleEndGame} 
+                onClose={() => setGameEnd(false)} 
                 points={points} 
                 maxPoints={questions.length} 
+                onPlayAgain={onPlayAgain}
             />
         </div>
     )

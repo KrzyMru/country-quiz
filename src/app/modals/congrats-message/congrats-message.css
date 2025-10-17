@@ -5,6 +5,7 @@
     border-radius: 12px;
     max-width: 320px;
     padding: 32px;
+    position: relative;
     @media screen and (max-width:900px) {
         box-sizing: border-box;
     }
@@ -51,5 +52,17 @@
     &:active {
         box-shadow: none;
         transform: translateY(4px);
+    }
+}
+
+.congrats__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    padding: 4px 4px 0 4px;
+    background-color: transparent;
+    &:hover {
+        cursor: pointer;
     }
 }

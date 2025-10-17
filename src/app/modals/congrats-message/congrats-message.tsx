@@ -3,9 +3,10 @@ import { CloseButton, DialogPanel, DialogTitle } from "@headlessui/react";
 import BaseModal from "../base-modal";
 import CongratsPng from "../../../assets/congrats.png";
 import type { CongratsModalProps } from "./types";
+import CloseIcon from "../../../assets/icon-close-modal.svg";
 
 const CongratsMessage = (props: CongratsModalProps) => {
-    const { isOpen, onClose, points, maxPoints } = { ...props }
+    const { isOpen, onClose, points, maxPoints, onPlayAgain } = { ...props }
 
     return (
         <BaseModal
@@ -20,13 +21,21 @@ const CongratsMessage = (props: CongratsModalProps) => {
                 />
                 <DialogTitle className="congrats__title">Congrats! You completed the quiz.</DialogTitle>
                 <span className="congrats__text">{`You answered ${points}/${maxPoints} questions correctly.`}</span>
-                <CloseButton
+                <button
                     type="button"
                     title="Play again"
                     className="congrats__button"
-                    onClick={onClose}
+                    onClick={onPlayAgain}
                 >
                     Play again
+                </button>
+                <CloseButton
+                    type="button"
+                    title="Close"
+                    className="settings__close"
+                    onClick={onClose}
+                >
+                    <img src={CloseIcon} alt="Close"/>
                 </CloseButton>
             </DialogPanel>
         </BaseModal>
