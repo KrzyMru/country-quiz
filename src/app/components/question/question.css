@@ -64,6 +64,9 @@
     &:hover {
         cursor: default;
         background: var(--dark-light);
+    }
+    &:active {
+        transform: translateY(0);
         box-shadow: 0 4px rgba(0, 0, 0, 0.1);
     }
 }
