@@ -10,7 +10,13 @@ const defaultSettings: Settings = {
     questionPopulationMin: true,
     questionAreaMax: true,
     questionAreaMin: true,
-    numberOfQuestions: 10,
+    numberQuestions: 10,
+    AnswersTwo: true,
+    AnswersFour: true,
+    AnswersSix: true,
+    probabilityAnswersTwo: 20,
+    probabilityAnswersFour: 80,
+    probabilityAnswersSix: 20,
 };
 
 const SettingsContext = createContext<SettingsProps>({
@@ -22,8 +28,15 @@ const SettingsProvider = ({ children }: { children: ReactNode }) => {
     const [settings, setSettings] = useState<Settings>(() => {
         try {
             const stored = localStorage.getItem("settings");
-            if(stored)
-                return { ...defaultSettings, ...JSON.parse(stored)};
+            if(stored) {
+                const parsed = JSON.parse(stored) as Settings;
+                console.log(parsed)
+                return { 
+                    ...defaultSettings, 
+                    ...parsed, 
+                    numberQuestions: (parsed.numberQuestions >= 1 || parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions
+                };
+            }
             return defaultSettings;
         } catch(e: unknown) {
             return defaultSettings;

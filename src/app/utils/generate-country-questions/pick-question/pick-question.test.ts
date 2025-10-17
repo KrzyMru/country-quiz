@@ -30,7 +30,10 @@ const testSettingsEnabled: Settings = {
     questionPopulationMin: true,
     questionAreaMax: true,
     questionAreaMin: true,
-    numberOfQuestions: 10,
+    numberQuestions: 10,
+    AnswersTwo: true, probabilityAnswersTwo: 0,
+    AnswersFour: true, probabilityAnswersFour: 0,
+    AnswersSix: true, probabilityAnswersSix: 0,
 };
 
 const testSettingsDisabled: Settings = {
@@ -42,7 +45,10 @@ const testSettingsDisabled: Settings = {
     questionPopulationMin: false,
     questionAreaMax: false,
     questionAreaMin: false,
-    numberOfQuestions: 10,
+    numberQuestions: 10,
+    AnswersTwo: true, probabilityAnswersTwo: 0,
+    AnswersFour: true, probabilityAnswersFour: 0,
+    AnswersSix: true, probabilityAnswersSix: 0,
 };
 
 test('Generates questions correctly', () => {

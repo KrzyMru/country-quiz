@@ -1,15 +1,13 @@
 import type { CountryData } from "../../api/types";
 import type { QuestionData } from "../../components/question/types";
 import type { Settings } from "../../contexts/settings/types";
+import pickOptions from "./pick-options/pick-options";
 import pickQuestion from "./pick-question/pick-question";
 
 const generateCountryQuestions = (countryData: CountryData[], settings: Settings): QuestionData[] => {
-    const answerNumbers = [2, 2, 4, 4, 4, 4, 4, 4, 6, 6];
-    const questionNumber = settings.numberOfQuestions < 1 ? 1 : settings.numberOfQuestions;
-    
-    const questions = Array.from({ length: questionNumber }, () => {
+    const questions = Array.from({ length: settings.numberQuestions }, () => {
        const question = pickQuestion(settings);
-       const options = answerNumbers[Math.floor(Math.random() * answerNumbers.length)];
+       const options = pickOptions(settings);
        return question(countryData, options);
     });
 

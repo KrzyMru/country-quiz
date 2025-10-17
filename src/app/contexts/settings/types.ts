@@ -7,7 +7,13 @@ interface Settings {
     questionPopulationMin: boolean,
     questionAreaMax: boolean,
     questionAreaMin: boolean,
-    numberOfQuestions: number,
+    numberQuestions: number,
+    AnswersTwo: boolean,
+    AnswersFour: boolean,
+    AnswersSix: boolean,
+    probabilityAnswersTwo: number,
+    probabilityAnswersFour: number,
+    probabilityAnswersSix: number,
 }
 
 interface SettingsProps {
