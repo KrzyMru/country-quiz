@@ -1,19 +1,31 @@
 import "./quiz.css";
 import Question from "../question/question";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { QuizProps } from "./types";
+import CongratsMessage from "../../modals/congrats-message/congrats-message";
 
 const Quiz = (props: QuizProps) => {
-    const { questions } = { ...props }
+    const { questions, onGameEnd } = { ...props }
     const [answers, setAnswers] = useState<Array<number|null>>(Array(questions.length).fill(null));
     const [currentQuestion, setcurrentQuestion] = useState<number>(0);
     const [points, setPoints] = useState<number>(0);
+    const [gameEnd, setGameEnd] = useState<boolean>(false);
 
     const handleClickAnswer = (answer: number) => {
         if(answer === questions[currentQuestion].correctAnswer)
             setPoints(points + 1);
         setAnswers(prev => prev.map((val, i) => i === currentQuestion ? answer : val));
     }
+
+    const handleEndGame = () => {
+        setGameEnd(false);
+        onGameEnd();
+    }
+
+    useEffect(() => {
+        if(!answers.includes(null))
+            setGameEnd(true);
+    }, [answers]);
 
     return (
         <div className="quiz__wrapper">
@@ -50,6 +62,12 @@ const Quiz = (props: QuizProps) => {
                     onClick={handleClickAnswer}
                 />
             </div>
+            <CongratsMessage 
+                isOpen={gameEnd} 
+                onClose={handleEndGame} 
+                points={points} 
+                maxPoints={questions.length} 
+            />
         </div>
     )
 }

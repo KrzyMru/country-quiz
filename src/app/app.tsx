@@ -67,7 +67,10 @@ const AppContent = () => {
           </button>
         </div>
         :
-        <Quiz questions={questions} />
+        <Quiz 
+          questions={questions} 
+          onGameEnd={loadQuestions}
+        />
       }
     </main>
   )
