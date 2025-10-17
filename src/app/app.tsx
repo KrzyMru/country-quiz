@@ -5,6 +5,7 @@ import getCountryData from "./api/get-country-data";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
 import type { QuestionData } from "./components/question/types";
 import { SettingsContext, SettingsProvider } from "./contexts/settings/settings-context";
+import SettingsModal from "./modals/settings/settings-modal";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const AppContent = () => {
   const [questions, setQuestions] = useState<QuestionData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+  const [openSettings, setOpenSettings] = useState<boolean>(false);
   const { settings } = useContext(SettingsContext);
 
   const loadQuestions = async () => {
@@ -61,6 +63,7 @@ const AppContent = () => {
           <button
             type="button"
             title="Settings"
+            onClick={() => setOpenSettings(true)}
             className="menu__button"
           >
             Settings
@@ -69,9 +72,14 @@ const AppContent = () => {
         :
         <Quiz 
           questions={questions} 
-          onGameEnd={loadQuestions}
+          onGameEnd={() => setQuestions([])}
+          onPlayAgain={loadQuestions}
         />
       }
+      <SettingsModal 
+        isOpen={openSettings}
+        onClose={() => setOpenSettings(false)}
+      />
     </main>
   )
 }

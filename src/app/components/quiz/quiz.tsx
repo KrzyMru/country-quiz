@@ -5,7 +5,7 @@ import type { QuizProps } from "./types";
 import CongratsMessage from "../../modals/congrats-message/congrats-message";
 
 const Quiz = (props: QuizProps) => {
-    const { questions, onGameEnd } = { ...props }
+    const { questions, onGameEnd, onPlayAgain } = { ...props }
     const [answers, setAnswers] = useState<Array<number|null>>(Array(questions.length).fill(null));
     const [currentQuestion, setcurrentQuestion] = useState<number>(0);
     const [points, setPoints] = useState<number>(0);
@@ -19,7 +19,7 @@ const Quiz = (props: QuizProps) => {
 
     const handleEndGame = () => {
         setGameEnd(false);
-        onGameEnd();
+        onPlayAgain();
     }
 
     useEffect(() => {
@@ -30,7 +30,14 @@ const Quiz = (props: QuizProps) => {
     return (
         <div className="quiz__wrapper">
             <div className="header__container">
-                <header className="header__logo">Country Quiz</header>
+                <button
+                    type="button"
+                    title="End game"
+                    onClick={onGameEnd}
+                    className="header__logo"
+                >
+                    <header>Country Quiz</header>
+                </button>
                 <span className="header__points">{`${points}/${questions.length} Points`}</span>
             </div>
             <div className="quiz__container">

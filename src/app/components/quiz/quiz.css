@@ -18,7 +18,14 @@
 .header__logo {
     color: var(--white);
     font-size: var(--text-lg);
-    font-weight: 700;
+    font-weight: 700; 
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline var(--white);
+    }
 }
 
 .header__points {
@@ -51,9 +58,8 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    @media screen and (max-width: 900px) {
-        flex-wrap: wrap;
-    }
+    max-width: 600px;
+    flex-wrap: wrap;
 }
 
 .quiz__question {
