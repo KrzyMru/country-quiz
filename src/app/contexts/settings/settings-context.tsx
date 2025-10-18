@@ -10,6 +10,7 @@ const defaultSettings: Settings = {
     questionPopulationMin: true,
     questionAreaMax: true,
     questionAreaMin: true,
+    countryType: 'independent',
     numberQuestions: 10,
     AnswersTwo: true,
     AnswersFour: true,
@@ -34,7 +35,8 @@ const SettingsProvider = ({ children }: { children: ReactNode }) => {
                 return { 
                     ...defaultSettings, 
                     ...parsed, 
-                    numberQuestions: (parsed.numberQuestions >= 1 || parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions
+                    numberQuestions: (parsed.numberQuestions >= 1 || parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions,
+                    countryType: (parsed.countryType === 'all' || parsed.countryType === 'independent' || parsed.countryType === 'territory') ? parsed.countryType : defaultSettings.countryType
                 };
             }
             return defaultSettings;

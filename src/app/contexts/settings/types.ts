@@ -7,6 +7,7 @@ interface Settings {
     questionPopulationMin: boolean,
     questionAreaMax: boolean,
     questionAreaMin: boolean,
+    countryType: 'all' | 'independent' | 'territory',
     numberQuestions: number,
     AnswersTwo: boolean,
     AnswersFour: boolean,

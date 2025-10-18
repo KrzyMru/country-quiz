@@ -89,7 +89,7 @@ const SettingsModal = (props: ModalProps) => {
                     </div>
 
                     <div className="settings__division">
-                        <span className="settings__section">Numbers</span>
+                        <span className="settings__section">Rules</span>
                         <div className="setting__check">
                             <CustomSwitch
                                 id="answersTwo"
@@ -126,6 +126,38 @@ const SettingsModal = (props: ModalProps) => {
                             />    
                             <label htmlFor="numberQuestions" className="settings__label">{`${settings.numberQuestions} question${settings.numberQuestions !== 1 ? 's' : ''}`}</label>
                         </div>
+                        <fieldset>
+                            <div className="setting__radio">
+                                <button
+                                    type="button"
+                                    title="Independent countries"
+                                    onClick={() => setSettings({ ...settings, countryType: 'independent' })}
+                                    className={`radio__button ${settings.countryType === 'independent' ? 'radio__button--active' : ''}`}
+                                    disabled={settings.countryType === 'independent'}
+                                >
+                                    Nations
+                                </button>
+                                <button
+                                    type="button"
+                                    title="All countries"
+                                    onClick={() => setSettings({ ...settings, countryType: 'all' })}
+                                    className={`radio__button ${settings.countryType === 'all' ? 'radio__button--active' : ''}`}
+                                    disabled={settings.countryType === 'all'}
+                                >
+                                    All
+                                </button>
+                                <button
+                                    type="button"
+                                    title="Territories"
+                                    onClick={() => setSettings({ ...settings, countryType: 'territory' })}
+                                    className={`radio__button ${settings.countryType === 'territory' ? 'radio__button--active' : ''}`}
+                                    disabled={settings.countryType === 'territory'}
+                                >
+                                    Regions
+                                </button>
+                            </div>
+                            <legend className="settings__label">Quiz scope</legend>
+                        </fieldset>
                     </div>
 
                 </div>

@@ -1,11 +1,13 @@
 import "./app.css";
 import { useContext, useState } from "react";
 import Quiz from "./components/quiz/quiz";
-import getCountryData from "./api/get-country-data";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
 import type { QuestionData } from "./components/question/types";
 import { SettingsContext, SettingsProvider } from "./contexts/settings/settings-context";
 import SettingsModal from "./modals/settings/settings-modal";
+import getCountryDataIndependent from "./api/get-country-data-independent";
+import getCountryDataAll from "./api/get-country-data-all";
+import getCountryDataTerritory from "./api/get-country-data-territory";
 
 const App = () => {
   return (
@@ -26,7 +28,9 @@ const AppContent = () => {
     try {
       setLoading(true);
       const [countryData] = await Promise.all([
-        getCountryData(),
+        settings.countryType === 'territory' ? getCountryDataTerritory() :
+        settings.countryType === 'all' ? getCountryDataAll() :
+        getCountryDataIndependent(),
         new Promise(resolve => setTimeout(resolve, 1000))
       ]); // Small delay to show loading
       setQuestions(GenerateCountryQuestions(countryData, settings));
