@@ -15,7 +15,11 @@ const generateCountryLandlockedQuestion = (countryData: CountryData[]): Question
             countryData[chosenCountry].translations[languageMap[language]].common
         } ${i18n.t('questions.landlocked.second')}`,
         answers: [i18n.t('questions.landlocked.yes'), i18n.t('questions.landlocked.no')],
-        correctAnswer: countryData[chosenCountry].landlocked ? 0 : 1
+        correctAnswer: countryData[chosenCountry].landlocked ? 0 : 1,
+        image: {
+            png: countryData[chosenCountry].flags.png,
+            alt: countryData[chosenCountry].flags.alt,
+        }
     }
 
     return question;

@@ -25,7 +25,11 @@ const generateCountryContinentQuestion = (countryData: CountryData[], options: n
             countryData[chosenCountry].translations[languageMap[language]].common
         }${i18n.t('questions.continents.second')}`,
         answers: Array.from({ length: finalAnswers.length }, (_, i) => i18n.t(`questions.continents.names.${finalAnswers[i]}`)),
-        correctAnswer: randomAnswerIndex
+        correctAnswer: randomAnswerIndex,
+        image: {
+            png: countryData[chosenCountry].flags.png,
+            alt: countryData[chosenCountry].flags.alt,
+        }
     }
 
     return question;

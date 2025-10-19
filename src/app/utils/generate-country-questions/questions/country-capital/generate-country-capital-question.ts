@@ -17,7 +17,11 @@ const generateCountryCapitalQuestion = (countryData: CountryData[], options: num
             randomCountries[chosenCountry].translations[languageMap[language]].common
         }?`,
         answers: Array.from({ length: randomCountries.length }, (_, i) => randomCountries[i].capital[0]), // No translation here unfortunately
-        correctAnswer: chosenCountry
+        correctAnswer: chosenCountry,
+        image: {
+            png: randomCountries[chosenCountry].flags.png,
+            alt: randomCountries[chosenCountry].flags.alt,
+        }
     }
 
     return question;
