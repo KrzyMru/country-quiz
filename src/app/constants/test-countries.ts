@@ -12,6 +12,10 @@ const testCountryData: CountryData[] = [
             alt: "frenchFlagAlt",
         },
         landlocked: false,
+        translations: {
+            eng: { common: "France", official: "French Republic" },
+            pol: { common: "Francja", official: "Republika Francuska" }
+        }
     },
     {
         name: { common: "Germany", official: "Federal Republic of Germany" },
@@ -24,6 +28,10 @@ const testCountryData: CountryData[] = [
             alt: "germanFlagAlt",
         },
         landlocked: false,
+        translations: {
+            eng: { common: "Germany", official: "Federal Republic of Germany" },
+            pol: { common: "Niemcy", official: "Republika Federalna Niemiec" }
+        }
     },
     {
         name: { common: "Nepal", official: "Federal Democratic Republic of Nepal" },
@@ -36,6 +44,10 @@ const testCountryData: CountryData[] = [
             alt: "nepaliFlagAlt",
         },
         landlocked: true,
+        translations: {
+            eng: { common: "Nepal", official: "Federal Democratic Republic of Nepal" },
+            pol: { common: "Nepal", official: "Federalna Demokratyczna Republika Nepalu" }
+        }
     },
     {
         name: { common: "Bolivia", official: "Plurinational State of Bolivia" },
@@ -48,6 +60,10 @@ const testCountryData: CountryData[] = [
             alt: "bolivianFlagAlt",
         },
         landlocked: true,
+        translations: {
+            eng: { common: "Bolivia", official: "Plurinational State of Bolivia" },
+            pol: { common: "Boliwia", official: "Wielonarodowe Państwo Boliwia" }
+        }
     },
 ];
 
