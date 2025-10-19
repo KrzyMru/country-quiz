@@ -8,6 +8,7 @@ import SettingsModal from "./modals/settings/settings-modal";
 import getCountryDataIndependent from "./api/get-country-data-independent";
 import getCountryDataAll from "./api/get-country-data-all";
 import getCountryDataTerritory from "./api/get-country-data-territory";
+import { useTranslation } from "react-i18next";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const AppContent = () => {
   const [error, setError] = useState<boolean>(false);
   const [openSettings, setOpenSettings] = useState<boolean>(false);
   const { settings } = useContext(SettingsContext);
+  const { t } = useTranslation();
 
   const loadQuestions = async () => {
     try {
@@ -49,28 +51,28 @@ const AppContent = () => {
         :
         error ?
         <div className="error">
-          <p>There was an error when loading country data.</p>
-          <p>Please try again later.</p>
+          <p>{t('menu.error.first')}</p>
+          <p>{t('menu.error.second')}</p>
         </div>
         :
         questions.length === 0 ?
         <div className="menu__container">
-          <header className="menu__header">Country Quiz</header>
+          <header className="menu__header">{t('menu.header')}</header>
           <button
             type="button"
-            title="Start"
+            title={t('menu.start')}
             onClick={loadQuestions}
             className="menu__button"
           >
-            Start
+            {t('menu.start')}
           </button>
           <button
             type="button"
-            title="Settings"
+            title={t('menu.settings')}
             onClick={() => setOpenSettings(true)}
             className="menu__button"
           >
-            Settings
+            {t('menu.settings')}
           </button>
         </div>
         :

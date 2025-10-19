@@ -1,7 +1,10 @@
+import i18n from 'i18next';
 import type { CountryData } from "../../../../api/types";
 import type { QuestionData } from "../../../../components/question/types";
 import continents from "../../../../constants/continents";
 import fisherYatesShuffle from "../../../fisher-yates-shuffle/fisher-yates-shuffle";
+import languageMap from '../../../../constants/languageMap';
+import type { LanguagesI18n } from '../../../../contexts/settings/types';
 
 const generateCountryContinentQuestion = (countryData: CountryData[], options: number): QuestionData => {
     const chosenCountry = Math.floor(Math.random() * countryData.length);
@@ -13,10 +16,15 @@ const generateCountryContinentQuestion = (countryData: CountryData[], options: n
         countryData[chosenCountry].continents[0], 
         ...randomOtherContinents.slice(randomAnswerIndex), 
     ];
+    const language = i18n.language as LanguagesI18n;
 
     const question: QuestionData = {
-        text: `Which continent is ${countryData[chosenCountry].name.common} a part of?`,
-        answers: Array.from({ length: finalAnswers.length }, (_, i) => finalAnswers[i]),
+        text: `${i18n.t('questions.continents.first')} ${
+            language === 'en' ? 
+            countryData[chosenCountry].name.common :
+            countryData[chosenCountry].translations[languageMap[language]].common
+        }${i18n.t('questions.continents.second')}`,
+        answers: Array.from({ length: finalAnswers.length }, (_, i) => i18n.t(`questions.continents.names.${finalAnswers[i]}`)),
         correctAnswer: randomAnswerIndex
     }
 

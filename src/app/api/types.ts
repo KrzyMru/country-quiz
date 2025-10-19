@@ -12,6 +12,12 @@ interface CountryData {
         alt: string,
     },
     landlocked: boolean,
+    translations: Record<LanguagesApi, {
+        common: string,
+        official: string,
+    }>
 }
 
-export type { CountryData }
+type LanguagesApi = 'eng' | 'pol';
+
+export type { CountryData, LanguagesApi }

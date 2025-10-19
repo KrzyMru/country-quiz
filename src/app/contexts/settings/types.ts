@@ -1,4 +1,5 @@
 interface Settings {
+    language: LanguagesI18n,
     questionCapital: boolean,
     questionFlag: boolean,
     questionContinent: boolean,
@@ -22,4 +23,6 @@ interface SettingsProps {
     setSettings: (newSettings: Settings) => void,
 }
 
-export type { Settings, SettingsProps }
+type LanguagesI18n = 'en' | 'pl';
+
+export type { Settings, SettingsProps, LanguagesI18n }

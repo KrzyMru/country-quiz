@@ -5,7 +5,7 @@ import type { Settings } from '../../../contexts/settings/types';
 const allOptions = [2,4,6];
 
 const testSettingsEnabled: Settings = {
-    questionCapital: true, questionFlag: true, questionLandlocked: true,
+    questionCapital: true, questionFlag: true, questionLandlocked: true, language: 'en',
     questionContinent: true, questionPopulationMax: true, questionPopulationMin: true,
     questionAreaMax: true, questionAreaMin: true, numberQuestions: 10, countryType: 'independent',
     probabilityAnswersTwo: 20, probabilityAnswersFour: 70, probabilityAnswersSix: 10,
@@ -15,7 +15,7 @@ const testSettingsEnabled: Settings = {
 };
 
 const testSettingsDisabled: Settings = {
-    questionCapital: true, questionFlag: true, questionLandlocked: true,
+    questionCapital: true, questionFlag: true, questionLandlocked: true, language: 'en',
     questionContinent: true, questionPopulationMax: true, questionPopulationMin: true,
     questionAreaMax: true, questionAreaMin: true, numberQuestions: 10, countryType: 'independent',
     probabilityAnswersTwo: 20, probabilityAnswersFour: 70, probabilityAnswersSix: 10,

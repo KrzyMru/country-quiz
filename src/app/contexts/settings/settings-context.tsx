@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { Settings, SettingsProps } from "./types";
 
 const defaultSettings: Settings = {
+    language: 'en',
     questionCapital: true,
     questionFlag: true,
     questionLandlocked: true,
@@ -31,10 +32,10 @@ const SettingsProvider = ({ children }: { children: ReactNode }) => {
             const stored = localStorage.getItem("settings");
             if(stored) {
                 const parsed = JSON.parse(stored) as Settings;
-                console.log(parsed)
                 return { 
                     ...defaultSettings, 
                     ...parsed, 
+                    language: (parsed.language === 'en' || parsed.language === 'pl') ? parsed.language : defaultSettings.language,
                     numberQuestions: (parsed.numberQuestions >= 1 || parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions,
                     countryType: (parsed.countryType === 'all' || parsed.countryType === 'independent' || parsed.countryType === 'territory') ? parsed.countryType : defaultSettings.countryType
                 };
@@ -46,7 +47,7 @@ const SettingsProvider = ({ children }: { children: ReactNode }) => {
     });
 
     useEffect(() => {
-        localStorage.setItem("settings", JSON.stringify(settings)); 
+        localStorage.setItem("settings", JSON.stringify(settings));
     }, [settings]);
 
     return (

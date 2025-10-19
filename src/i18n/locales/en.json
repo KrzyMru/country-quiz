@@ -1,0 +1,87 @@
+{
+    "menu": {
+        "header": "Country Quiz",
+        "start": "Start",
+        "settings": "Settings",
+        "error": {
+            "first": "There was an error when loading country data.",
+            "second": "Please try again later."
+        }
+    },
+    "quiz": {
+        "header": "Country Quiz",
+        "endGame": "End game",
+        "points": "Points",
+        "question": "question"
+    },
+    "congratsModal": {
+        "congrats": "Congrats",
+        "completedQuiz": "You completed the quiz.",
+        "youAnswered": "You answered",
+        "questionsCorrectly": "questions correctly.",
+        "playAgain": "Play again",
+        "close": "Close"
+    },
+    "settingsModal": {
+        "settings": "Settings",
+        "sectionFirst": "Questions",
+        "sectionSecond": "Rules",
+        "flags": "Flags",
+        "capitals": "Capitals",
+        "continents": "Continents",
+        "landlocked": "Landlocked",
+        "populationMax": "Biggest population",
+        "populationMin": "Smallest population",
+        "areaMax": "Biggest area",
+        "areaMin": "Smallest area",
+        "answersTwo": "Possibility of 2 answers",
+        "answersFour": "Possibility of 4 answers",
+        "answersSix": "Possibility of 6 answers",
+        "question": "question",
+        "questions": "questions",
+        "quizScope": {
+            "title": "Quiz scope",
+            "independent": {
+                "title": "Independent countries",
+                "label": "Nations"
+            },
+            "all": {
+                "title": "All countries",
+                "label": "All"
+            },
+            "territories": {
+                "title": "Territories",
+                "label": "Regions"
+            }
+        },
+        "language": "Language",
+        "close": "Close"
+    },
+    "questions": {
+        "flags": "Which country does this flag belong to?",
+        "capitals": "What is the capital of",
+        "continents": {
+            "first": "Which continent is",
+            "second": " a part of?",
+            "names": {
+                "Africa": "Africa", 
+                "Asia": "Asia", 
+                "Europe": "Europe", 
+                "North America": "North America", 
+                "South America": "South America", 
+                "Oceania": "Oceania", 
+                "Antarctica": "Antarctica"
+            }
+        },
+        "landlocked": {
+            "first": "Is",
+            "second": "landlocked?",
+            "yes": "Yes",
+            "no": "No"
+        },
+        "populationMax": "Which of the following countries has the largest population?",
+        "populationMin": "Which of the following countries has the smallest population?",
+        "areaMax": "Which of the following countries has the largest land area?",
+        "areaMin": "Which of the following countries has the smallest land area?"
+    }
+}

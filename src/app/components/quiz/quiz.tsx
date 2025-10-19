@@ -3,6 +3,7 @@ import Question from "../question/question";
 import { useEffect, useState } from "react";
 import type { QuizProps } from "./types";
 import CongratsMessage from "../../modals/congrats-message/congrats-message";
+import { useTranslation } from "react-i18next";
 
 const Quiz = (props: QuizProps) => {
     const { questions, onGameEnd, onPlayAgain } = { ...props }
@@ -10,6 +11,7 @@ const Quiz = (props: QuizProps) => {
     const [currentQuestion, setcurrentQuestion] = useState<number>(0);
     const [points, setPoints] = useState<number>(0);
     const [gameEnd, setGameEnd] = useState<boolean>(false);
+    const { t } = useTranslation();
 
     const handleClickAnswer = (answer: number) => {
         if(answer === questions[currentQuestion].correctAnswer)
@@ -27,13 +29,13 @@ const Quiz = (props: QuizProps) => {
             <div className="header__container">
                 <button
                     type="button"
-                    title="End game"
+                    title={t('quiz.endGame')}
                     onClick={onGameEnd}
                     className="header__logo"
                 >
-                    <header>Country Quiz</header>
+                    <header>{t('quiz.header')}</header>
                 </button>
-                <span className="header__points">{`${points}/${questions.length} Points`}</span>
+                <span className="header__points">{`${points}/${questions.length} ${t('quiz.points')}`}</span>
             </div>
             <div className="quiz__container">
                 <ul className="quiz__questions">
@@ -42,7 +44,7 @@ const Quiz = (props: QuizProps) => {
                         <li key={i}>
                             <button
                                 type="button"
-                                title={`${i+1} question`}
+                                title={`${i+1} ${t('quiz.question')}`}
                                 className={`
                                     quiz__question 
                                     ${answers[i] !== null ? 

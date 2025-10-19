@@ -1,0 +1,87 @@
+{
+    "menu": {
+        "header": "Quiz o krajach",
+        "start": "Start",
+        "settings": "Ustawienia",
+        "error": {
+            "first": "Wystąpił błąd podczas ładowania danych krajów.",
+            "second": "Proszę spróbować ponownie później."
+        }
+    },
+    "quiz": {
+        "header": "Quiz o krajach",
+        "endGame": "Zakończ grę",
+        "points": "Punktów",
+        "question": "pytanie"
+    },
+    "congratsModal": {
+        "congrats": "Gratulacje",
+        "completedQuiz": "Ukończyłeś/aś quiz.",
+        "youAnswered": "Odpowiedziałeś/aś poprawnie na",
+        "questionsCorrectly": "pytań.",
+        "playAgain": "Graj ponownie",
+        "close": "Zamknij"
+    },
+    "settingsModal": {
+        "settings": "Ustawienia",
+        "sectionFirst": "Pytania",
+        "sectionSecond": "Zasady",
+        "flags": "Flagi",
+        "capitals": "Stolice",
+        "continents": "Kontynenty",
+        "landlocked": "Dostęp do morza",
+        "populationMax": "Największa populacja",
+        "populationMin": "Najmniejsza populacja",
+        "areaMax": "Największa powierzchnia",
+        "areaMin": "Najmniejsza powierzchnia",
+        "answersTwo": "Możliwość 2 odpowiedzi",
+        "answersFour": "Możliwość 4 odpowiedzi",
+        "answersSix": "Możliwość 6 odpowiedzi",
+        "question": "pytanie",
+        "questions": "pytania",
+        "quizScope": {
+            "title": "Zakres quizu",
+            "independent": {
+                "title": "Niepodległe kraje",
+                "label": "Państwa"
+            },
+            "all": {
+                "title": "Wszystkie kraje",
+                "label": "Wszystkie"
+            },
+            "territories": {
+                "title": "Terytoria",
+                "label": "Regiony"
+            }
+        },
+        "language": "Język",
+        "close": "Zamknij"
+    },
+    "questions": {
+        "flags": "Do którego kraju należy ta flaga?",
+        "capitals": "Jaka jest stolica kraju",
+        "continents": {
+            "first": "Do którego kontynentu należy",
+            "second": "?",
+            "names": {
+                "Africa": "Afryka", 
+                "Asia": "Azja", 
+                "Europe": "Europa", 
+                "North America": "Ameryka Północna", 
+                "South America": "Ameryka Południowa", 
+                "Oceania": "Oceania", 
+                "Antarctica": "Antarktyda"
+            }
+        },
+        "landlocked": {
+            "first": "Czy",
+            "second": "to kraj śródlądowy?",
+            "yes": "Tak",
+            "no": "Nie"
+        },
+        "populationMax": "Który z poniższych krajów ma największą liczbę ludności?",
+        "populationMin": "Który z poniższych krajów ma najmniejszą liczbę ludności?",
+        "areaMax": "Który z poniższych krajów ma największą powierzchnię lądową?",
+        "areaMin": "Który z poniższych krajów ma najmniejszą powierzchnię lądową?"
+    }
+}

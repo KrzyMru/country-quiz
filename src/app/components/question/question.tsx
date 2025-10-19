@@ -5,7 +5,6 @@ const Question = (props: QuestionProps) => {
     const { question, onClick, userAnswer } = { ...props }
 
     const isCorrectAnswerChoosen = userAnswer !== null && userAnswer === question.correctAnswer;
-    console.log(question)
 
     return (
         <div className="question__container">
