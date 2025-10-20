@@ -36,7 +36,7 @@ const SettingsProvider = ({ children }: { children: ReactNode }) => {
                     ...defaultSettings, 
                     ...parsed, 
                     language: (parsed.language === 'en' || parsed.language === 'pl') ? parsed.language : defaultSettings.language,
-                    numberQuestions: (parsed.numberQuestions >= 1 || parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions,
+                    numberQuestions: (parsed.numberQuestions >= 1 && parsed.numberQuestions <= 30) ? parsed.numberQuestions : defaultSettings.numberQuestions,
                     countryType: (parsed.countryType === 'all' || parsed.countryType === 'independent' || parsed.countryType === 'territory') ? parsed.countryType : defaultSettings.countryType
                 };
             }
