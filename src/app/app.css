@@ -44,6 +44,9 @@
     flex-direction: column;
     gap: 32px;
     padding-bottom: 40px;
+    @media screen and (max-width:418px) {
+        width: 100%;
+    }
 }
 
 .menu__header {
@@ -71,6 +74,9 @@
     &:active {
         box-shadow: none;
         transform: translateY(4px);
+    }
+    @media screen and (max-width:418px) {
+        padding: 24px;
     }
 }
 
