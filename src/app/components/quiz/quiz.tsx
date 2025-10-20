@@ -19,6 +19,14 @@ const Quiz = (props: QuizProps) => {
         setAnswers(prev => prev.map((val, i) => i === currentQuestion ? answer : val));
     }
 
+    const handlePlayAgain = () => {
+        setAnswers(Array(questions.length).fill(null));
+        setcurrentQuestion(0);
+        setPoints(0);
+        setGameEnd(false);
+        onPlayAgain();
+    }
+
     useEffect(() => {
         if(!answers.includes(null))
             setGameEnd(true);
@@ -71,7 +79,7 @@ const Quiz = (props: QuizProps) => {
                 onClose={() => setGameEnd(false)} 
                 points={points} 
                 maxPoints={questions.length} 
-                onPlayAgain={onPlayAgain}
+                onPlayAgain={handlePlayAgain}
             />
         </div>
     )

@@ -1,5 +1,5 @@
 import "./app.css";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Quiz from "./components/quiz/quiz";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
 import type { QuestionData } from "./components/question/types";
@@ -9,6 +9,7 @@ import getCountryDataIndependent from "./api/get-country-data-independent";
 import getCountryDataAll from "./api/get-country-data-all";
 import getCountryDataTerritory from "./api/get-country-data-territory";
 import { useTranslation } from "react-i18next";
+import type { CountryData } from "./api/types";
 
 const App = () => {
   return (
@@ -19,28 +20,46 @@ const App = () => {
 }
 
 const AppContent = () => {
+  const [countryData, setCountryData] = useState<CountryData[]>([]);
   const [questions, setQuestions] = useState<QuestionData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [openSettings, setOpenSettings] = useState<boolean>(false);
   const { settings } = useContext(SettingsContext);
+  const prevCountryType = useRef(settings.countryType);
   const { t } = useTranslation();
 
-  const loadQuestions = async () => {
-    try {
-      setLoading(true);
+  const loadCountryData = async () => {
       const [countryData] = await Promise.all([
         settings.countryType === 'territory' ? getCountryDataTerritory() :
         settings.countryType === 'all' ? getCountryDataAll() :
         getCountryDataIndependent(),
         new Promise(resolve => setTimeout(resolve, 1000))
       ]); // Small delay to show loading
-      setQuestions(GenerateCountryQuestions(countryData, settings));
-    } catch(e: unknown) { 
+      return countryData;
+  }
+
+  const startGame = async () => {
+    try {
+      setLoading(true);
+      const countryTypeChanged = prevCountryType.current !== settings.countryType;
+      if(countryData.length === 0 || countryTypeChanged) {
+        prevCountryType.current = settings.countryType;
+        const newCountryData = await loadCountryData();
+        setCountryData(newCountryData);
+        setQuestions(GenerateCountryQuestions(newCountryData, settings));
+      }
+      else
+        setQuestions(GenerateCountryQuestions(countryData, settings));
+    } catch(e: unknown) {
       setError(true);
     } finally {
       setLoading(false);
     }
+  }
+
+  const endGame = () => {
+    setQuestions([]);
   }
 
   return (
@@ -61,7 +80,7 @@ const AppContent = () => {
           <button
             type="button"
             title={t('menu.start')}
-            onClick={loadQuestions}
+            onClick={startGame}
             className="menu__button"
           >
             {t('menu.start')}
@@ -78,8 +97,8 @@ const AppContent = () => {
         :
         <Quiz 
           questions={questions} 
-          onGameEnd={() => setQuestions([])}
-          onPlayAgain={loadQuestions}
+          onGameEnd={endGame}
+          onPlayAgain={startGame}
         />
       }
       <SettingsModal 
