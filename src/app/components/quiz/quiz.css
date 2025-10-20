@@ -51,6 +51,19 @@
     }
 }
 
+.quiz__score {
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    background: var(--orange);
+    padding: 8px 16px 8px 16px;
+    border-radius: 24px;
+    margin: -24px 0 12px;
+    @media screen and (max-width: 900px) {
+        margin: 0 0 12px;
+    }
+}
+
 .quiz__questions {
     list-style: none;
     margin: 0;
@@ -88,4 +101,10 @@
 }
 .quiz__question--active {
     outline: var(--white) solid 2px;
+}
+.quiz__question--disabled {
+    &:hover {
+        cursor: default;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    }
 }

@@ -2,6 +2,7 @@
     "menu": {
         "header": "Quiz o krajach",
         "start": "Start",
+        "endless": "Tryb nieskończony",
         "settings": "Ustawienia",
         "error": {
             "first": "Wystąpił błąd podczas ładowania danych krajów.",
@@ -11,14 +12,18 @@
     "quiz": {
         "header": "Quiz o krajach",
         "endGame": "Zakończ grę",
-        "points": "Punktów",
+        "points": "Punkty",
+        "highscore": "Rekord",
         "question": "pytanie"
     },
     "congratsModal": {
         "congrats": "Gratulacje",
         "completedQuiz": "Ukończyłeś/aś quiz.",
+        "completedEndless": "Ukończyłeś/aś tę rozgrywkę.",
         "youAnswered": "Odpowiedziałeś/aś poprawnie na",
-        "questionsCorrectly": "pytań.",
+        "questionsCorrectly": "pytań",
+        "highscoreBeat": " i udało Ci się pobić poprzedni rekord!",
+        "highscoreNotBeat": ", ale nie udało Ci się pobić rekordu",
         "playAgain": "Graj ponownie",
         "close": "Zamknij"
     },

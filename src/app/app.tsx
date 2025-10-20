@@ -1,5 +1,5 @@
 import "./app.css";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Quiz from "./components/quiz/quiz";
 import GenerateCountryQuestions from "./utils/generate-country-questions/generate-country-questions";
 import type { QuestionData } from "./components/question/types";
@@ -22,6 +22,7 @@ const App = () => {
 const AppContent = () => {
   const [countryData, setCountryData] = useState<CountryData[]>([]);
   const [questions, setQuestions] = useState<QuestionData[]>([]);
+  const [endlessMode, setEndlessMode] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [openSettings, setOpenSettings] = useState<boolean>(false);
@@ -30,27 +31,28 @@ const AppContent = () => {
   const { t } = useTranslation();
 
   const loadCountryData = async () => {
-      const [countryData] = await Promise.all([
-        settings.countryType === 'territory' ? getCountryDataTerritory() :
-        settings.countryType === 'all' ? getCountryDataAll() :
-        getCountryDataIndependent(),
-        new Promise(resolve => setTimeout(resolve, 1000))
-      ]); // Small delay to show loading
-      return countryData;
+    const [countryData] = await Promise.all([
+      settings.countryType === 'territory' ? getCountryDataTerritory() :
+      settings.countryType === 'all' ? getCountryDataAll() :
+      getCountryDataIndependent(),
+      new Promise(resolve => setTimeout(resolve, 1000))
+    ]); // Small delay to show loading
+    return countryData;
   }
 
   const startGame = async () => {
     try {
       setLoading(true);
-      const countryTypeChanged = prevCountryType.current !== settings.countryType;
+      const finalSettings = endlessMode ? { ...settings, numberQuestions: 3 } : settings;
+      const countryTypeChanged = prevCountryType.current !== finalSettings.countryType;
       if(countryData.length === 0 || countryTypeChanged) {
-        prevCountryType.current = settings.countryType;
+        prevCountryType.current = finalSettings.countryType;
         const newCountryData = await loadCountryData();
         setCountryData(newCountryData);
-        setQuestions(GenerateCountryQuestions(newCountryData, settings));
+        setQuestions(GenerateCountryQuestions(newCountryData, finalSettings));
       }
       else
-        setQuestions(GenerateCountryQuestions(countryData, settings));
+        setQuestions(GenerateCountryQuestions(countryData, finalSettings));
     } catch(e: unknown) {
       setError(true);
     } finally {
@@ -60,7 +62,14 @@ const AppContent = () => {
 
   const endGame = () => {
     setQuestions([]);
+    if(endlessMode)
+      setEndlessMode(false);
   }
+
+  useEffect(() => {
+    if(endlessMode)
+      startGame();
+  }, [endlessMode]);
 
   return (
     <main className="page">
@@ -87,6 +96,14 @@ const AppContent = () => {
           </button>
           <button
             type="button"
+            title={t('menu.endless')}
+            onClick={() => setEndlessMode(true)}
+            className="menu__button"
+          >
+            {t('menu.endless')}
+          </button>
+          <button
+            type="button"
             title={t('menu.settings')}
             onClick={() => setOpenSettings(true)}
             className="menu__button"
@@ -99,6 +116,7 @@ const AppContent = () => {
           questions={questions} 
           onGameEnd={endGame}
           onPlayAgain={startGame}
+          endlessMode={endlessMode}
         />
       }
       <SettingsModal 

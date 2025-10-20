@@ -2,6 +2,7 @@
     "menu": {
         "header": "Country Quiz",
         "start": "Start",
+        "endless": "Endless mode",
         "settings": "Settings",
         "error": {
             "first": "There was an error when loading country data.",
@@ -12,13 +13,17 @@
         "header": "Country Quiz",
         "endGame": "End game",
         "points": "Points",
+        "highscore": "Highscore",
         "question": "question"
     },
     "congratsModal": {
         "congrats": "Congrats",
         "completedQuiz": "You completed the quiz.",
+        "completedEndless": "You reached the end of this run.",
         "youAnswered": "You answered",
-        "questionsCorrectly": "questions correctly.",
+        "questionsCorrectly": "questions correctly",
+        "highscoreBeat": ", and beat your old highscore!",
+        "highscoreNotBeat": ", but you didn't beat your highscore",
         "playAgain": "Play again",
         "close": "Close"
     },

@@ -7,7 +7,7 @@ import CloseIcon from "../../../assets/icon-close-modal.svg";
 import { useTranslation } from "react-i18next";
 
 const CongratsMessage = (props: CongratsModalProps) => {
-    const { isOpen, onClose, points, maxPoints, onPlayAgain } = { ...props }
+    const { isOpen, onClose, points, maxPoints, onPlayAgain, endlessMode } = { ...props }
     const { t } = useTranslation();
 
     return (
@@ -21,8 +21,12 @@ const CongratsMessage = (props: CongratsModalProps) => {
                     alt={t('congratsModal.congrats')}
                     className="congrats__image"
                 />
-                <DialogTitle className="congrats__title">{t('congratsModal.congrats')+'! '+t('congratsModal.completedQuiz')}</DialogTitle>
-                <span className="congrats__text">{`${t('congratsModal.youAnswered')} ${points}/${maxPoints} ${t('congratsModal.questionsCorrectly')}`}</span>
+                <DialogTitle className="congrats__title">{`${t('congratsModal.congrats')}! ${endlessMode ? t('congratsModal.completedEndless') : t('congratsModal.completedQuiz')}`}</DialogTitle>
+                <span className="congrats__text">{`
+                    ${t('congratsModal.youAnswered')} ${points}${endlessMode ? '' : '/'+maxPoints} ${t('congratsModal.questionsCorrectly')}${
+                        endlessMode ? (points > maxPoints ? t('congratsModal.highscoreBeat') : t('congratsModal.highscoreNotBeat')) +` (${maxPoints}).` : '.'
+                    }`}
+                </span>
                 <button
                     type="button"
                     title={t('congratsModal.playAgain')}
